@@ -152,7 +152,8 @@ All the aspects of ISO 26262 are directly implemented in the development process
 With continuous improvements, an integral aspect in all processes, we want to achieve excellence.
 
 Cybersecurity Interface
------------------------
+^^^^^^^^^^^^^^^^^^^^^^^
+
 Cybersecurity is a critical aspect of the overall safety culture and is recognized as an essential element in the development and operation of the S-CORE platform.
 While functional safety and cybersecurity have distinct objectives, their interaction is managed through coordinated processes and shared responsibilities.
 
@@ -169,7 +170,7 @@ This approach ensures that cybersecurity is not treated in isolation, but as an 
 The security management aspects are defined in the :doc:`security_management`.
 
 Functional Safety Management Organization
------------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 It is the project strategy to qualify the platform or components of the platform to the appropriate international standards and directives.
 Therefore the project approach to facilitate a common culture regarding safety and security is part of our documentation.
@@ -184,7 +185,7 @@ The project will be under the Eclipse Foundation and so the `Eclipse Foundation 
 *Project Roles*
 
 Roles are defined in every process and in a generic roles section. All those are matched to Eclipse roles.
-Project role assignment is done in every feature development Safety Plan.
+Project role assignment is documented in dedicated documents.
 
 *Critical dependencies*
 
@@ -198,32 +199,32 @@ Organization and management system has not a mature level yet.
 
 *Skills*
 
-The main safety related project roles are the project manager and the safety manager and these also have to have the (Eclipse) committer role.
+The main safety related project roles are the project manager, the safety manager and the safety engineer, these also have to have the (Eclipse) committer role.
 As defined in `Committer Training <https://www.eclipse.org/projects/training/>`_ the committers are elected in a meritocratic manner, meaning those have to show their skills and understanding of the project processes in several previous pull requests.
 
-As each project can adopt additional criteria for the committers election, we define the following:
+For the :need:`rl__project_lead`, the :need:`rl__safety_manager` and the :need:`rl__safety_engineer` the required skills and experience are described
+in these project role definitions. They are also elected in a meritocratic way and this election is documented including the evidences checked to prove the experience.
 
-each committer has to prove his knowledge in functional safety SW development by
+Committers in the S-CORE project can work on the development of safety related or non-safety related SW modules.
+If they work on safety related modules they have to prove (additionaly to their committer election, which already shows they are skilled developers):
 
-* an absolved training in ISO 26262 (or equivalent standard, at least 16h of SW development specific training by a trusted training provider) OR
-* by attending the projects's ISO 26262 SW development training (given by a safety team member)
+* two years practice of safety related SW development (or management) relevant for the section content (includes trainings in safety standards like ISO 26262)
+* training on the S-CORE processes
 
-Additionally the project repository is organized in "CODEOWNER" sections. These "CODEOWNERS" need to approve any pull request modifying a file in their area before it is merged.
+To ensure this, the platform and module repositories folders (and files) are protected by "CODEOWNER" sections.
+These "CODEOWNERS" need to approve any pull request modifying a file in their area before it is merged.
 
-In case of safety related "CODEOWNER" sections (e.g. a file containing feature requirements with an ASIL level) the persons having "CODEOWNER" rights need to have:
-* One year of professional practice of safety related SW development (or management) relevant for the section content
-
-The successful checking of committers and CODEOWNERS skills is ensured by the safety manager and documented in the role assignment document.
+The successful checking of CODEOWNERS experience is ensured by the safety manager and documented in the role assignment document.
 One important aspect to this is, that we ensure the identity of the committer by applying the GitHub digital signature mechanism.
 
 Functional Safety Resources
----------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-A dedicated safety manager is elected by :need:`rl__project_lead` for all the S-CORE SEooCs development.
+A dedicated safety manager is elected for all the S-CORE SEooCs development - see :need:`doc__platform_safety_manager`.
 
-The safety manager, supported by the project manager (:need:`rl__project_lead`) or the assigned Feature team lead, will ensure that
+The safety manager, supported by the project manager (:need:`rl__project_lead`) or the assigned Feature team leads, will ensure that
 safety activities are actively planned, developed, analyzed, verified and tested and managed throughout the life cycle of the project.
-As all the implementation of safety functions takes place within module development, there is a safety manager appointed in the module's safety plan.
+As all the implementation of safety functions takes place within module development, there is a responsible safety manager documented in the module's safety plan.
 
 Resources and milestones are planned in Github Issues for all activities.
 There are issue templates for sagas (covering one feature development) and for epics (covering one development work product each).
@@ -237,7 +238,7 @@ The issue types and issue types workflows are described in the platform manageme
 For safety relevant issues types a "safety" label is used.
 
 Functional Safety Management Communication
-------------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 To exchange general information and to clarify general topics the following communication channels are used:
 
@@ -248,7 +249,7 @@ To exchange general information and to clarify general topics the following comm
 
 *Reporting*
 
-The safety management status is reported in the Technical Lead Circle Meeting which is defined in :need:`doc__project_mgt_plan`.
+The safety management status is reported in the Project Lead Circle Meeting which is defined in :need:`doc__project_mgt_plan`.
 The status report is based on safety plans work product lists (see below) and verification reports on platform and module level:
 
 * :need:`wp__platform_safety_plan`
@@ -258,15 +259,19 @@ The status report is based on safety plans work product lists (see below) and ve
 
 *Escalation*
 
-* :need:`rl__safety_manager` to :need:`rl__project_lead`
+* :need:`rl__safety_manager` to :need:`rl__project_lead` (in the Project Lead Circle)
+
+The Project Lead Circle is the ultimate decision instance within the S-CORE project.
+But as in every Eclipse project the rules and committee decisions of Eclipse have to be followed.
 
 Examples for valid escalation causes are:
 
 * Safety issues cannot be resolved on module level or with the available resources.
-* There are conflicting points-of-view between the project manager and the safety manager
+* There are conflicting points-of-view between the module project manager (= Feature team lead) and any safety manager
+* Safety anomalies detected by the safety manager are not accepted by the module project manager
 
 Functional Safety Management Life Cycle
----------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The safety lifecycle of the S-CORE project is initiated at the project set-up and driven and maintained by the safety manager supported by the :need:`rl__process_community`.
 Note that the Eclipse Foundation also defines `project phases <https://www.eclipse.org/projects/handbook/#starting-project-phases>`_.
@@ -279,35 +284,35 @@ All safety activities, planning, and evidence generation are tracked via the Pla
 This approach ensures compliance with ISO 26262 for software SEooC, while avoiding unnecessary activities not applicable to the S-CORE context.
 
 Functional Safety Requirements
-++++++++++++++++++++++++++++++
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Requirement Engineering is defined in the process description. See :need:`doc__project_mgt_plan`.
 
 The application of ISO 26262 standards requirements is realized by defining process guidances and matching those to the ISO 26262 requirements (see e.g. for example :need:`gd_req__safety_doc_status`).
 
 Functional Safety Schedule
----------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^
 The schedule is defined in section "Platform Safety Plan" below, but also within each module safety plan. See linked issues below and in :need:`gd_temp__module_safety_plan`.
 
 Functional Safety Development
------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 The SW development is defined in the project-wide software development plan. See :doc:`software_development`
 
 Functional Safety Verification
-------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 The platform management plan defines the :doc:`software_verification`
 
 Functional Safety Tool Management
----------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 The platform management plan defines :doc:`tool_management`
 
 Functional Safety Work Products
--------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 The work products relevant for a module development is defined within each module safety management plan. See :need:`gd_temp__module_safety_plan`.
 Generic project wide work products are defined below.
 
 Functional Safety Quality Criteria
-----------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 The platform management plan defines :doc:`quality_management`
 
 Platform Safety Plan
